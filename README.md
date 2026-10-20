@@ -6,7 +6,7 @@ Firmware: ArduPilot(ArduCopter) 4.7.0
 Communication: USB
 
 ## Get Started
-1. Test with MAVProxy (tested on Ubuntu 26.04)
+### 1. Test with MAVProxy (tested on Ubuntu 26.04)
 ```console
 sudo apt update
 sudo apt install python3-pip
@@ -38,8 +38,8 @@ Received 1068 parameters (ftp)
 Saved 1068 parameters to mav.parm
 Flight battery 100 percent
 ```
-2. PyMAVLink tests
-Installation from official [repo](https://github.com/ArduPilot/pymavlink)
+### 2. PyMAVLink tests
+Install from [PyMAVLink](https://github.com/ArduPilot/pymavlink) official repository.
 - [Communication test](pymavlink_ws/test_comm.py)
 - [Motor test](pymavlink_ws/test_motor.py)
 
