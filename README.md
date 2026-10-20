@@ -39,7 +39,9 @@ Saved 1068 parameters to mav.parm
 Flight battery 100 percent
 ```
 2. PyMAVLink tests
-
+Installation from official [repo](https://github.com/ArduPilot/pymavlink)
+- [Communication test](pymavlink_ws/test_comm.py)
+- [Motor test](pymavlink_ws/test_motor.py)
 
 ## Old Things
 To run the colordetection.py: 
