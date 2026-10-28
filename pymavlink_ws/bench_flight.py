@@ -17,6 +17,7 @@ def set_throttle(pwm_value):
         master.target_component,
         0, 0, pwm_value, 0, 0, 0, 0, 0
     )
+    print(f"Throttle set to {pwm_value / 10 - 100} %")
 
 # 1. Switch to STABILIZE mode (Mode 0 in ArduCopter)
 print("Setting STABILIZE mode...")
@@ -41,26 +42,27 @@ time.sleep(2)
 
 # 3. Simulate "Lift-off" (Ramp up throttle)
 print("Throttling up...")
-for pwm in range(1000, 1500, 20):
+for pwm in range(1000, 1500, 10):
     set_throttle(pwm)
     # The loop delay dictates the speed of the throttle ramp. 
     # MAVLink requires these messages at ~10Hz minimum so it doesn't trigger a timeout.
     time.sleep(0.1) 
 
 # 4. Hold at mid-throttle for 3 seconds
-print("Holding at mid-throttle...")
-for _ in range(30):
+for i in reversed(range(3)):
     set_throttle(1500)
-    time.sleep(0.1)
+    print(f"Holding at mid-throttle...{i+1}")
+    time.sleep(1)
 
 # 5. Simulate "Landing" (Ramp down throttle)
 print("Throttling down...")
-for pwm in range(1500, 1000, -20):
+for pwm in range(1500, 1000, -10):
     set_throttle(pwm)
     time.sleep(0.1)
 
 # Release the throttle override entirely
-set_throttle(0)
+print("Releasing throttle...")
+set_throttle(1000)
 time.sleep(1)
 
 # 6. Disarm the vehicle
